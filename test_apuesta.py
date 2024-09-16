@@ -54,3 +54,27 @@ def test_tomarFichas_error():
     a = Fichas()
     a.ficha = 5
     a.tomarFicha(5)  
+
+def test_tomarTodo():
+    a = Fichas()
+    a.ponerFichas(1)
+    a.tomarTodas()
+    assert(a.total == 0) 
+
+def test_tomarTodo_error():
+    with pytest.raises(ValueError):
+        a=Fichas()
+        a.ponerFichas(0)
+        a.tomarTodas()
+        assert(a.ficha == 0)
+        
+
+
+ 
+
+def test_tieneFicha():
+    a = Fichas()
+    a.ponerFichas(4)
+    a.tieneFicha(3)
+    assert(a.ficha == 3)
+    

@@ -16,14 +16,17 @@ class Fichas:
         self.ficha = self.ficha - cuantas
 
     def tomarTodas(self):
-        self.ficha = self.ficha - self.ficha
-        return self.ficha
+        if self.ficha == 0:
+            raise ValueError("No se puede tomar fichas")
+        self.total = self.ficha - self.ficha 
+         
+        return f"Tengo {self.ficha} fichas y quedan {self.total} fichas en la mesa"
     
     def tieneFicha(self, cuantas=1):
         if cuantas == self.ficha:
             return True
     def estaVacia(self):
-        if self.ficha == 0:
+        if self.total == 0:
             return True
 
 
