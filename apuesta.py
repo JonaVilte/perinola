@@ -18,9 +18,8 @@ class Fichas:
     def tomarTodas(self):
         if self.ficha == 0:
             raise ValueError("No se puede tomar fichas")
-        self.total = self.ficha - self.ficha 
-         
-        return f"Tengo {self.ficha} fichas y quedan {self.total} fichas en la mesa"
+        self.ficha = 0          
+        return f"Tengo {self.ficha} fichas y quedan {self.ficha} fichas en la mesa"
     
     def tieneFicha(self, cuantas=1):
         if cuantas == self.ficha:

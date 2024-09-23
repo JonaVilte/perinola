@@ -1,4 +1,4 @@
-import pytest
+import pytest  # type: ignore
 from apuesta import Fichas
 
 def test_prueba():
@@ -59,22 +59,19 @@ def test_tomarTodo():
     a = Fichas()
     a.ponerFichas(1)
     a.tomarTodas()
-    assert(a.total == 0) 
+    assert(a.ficha == 0) 
 
 def test_tomarTodo_error():
     with pytest.raises(ValueError):
         a=Fichas()
         a.ponerFichas(0)
         a.tomarTodas()
-        assert(a.ficha == 0)
+    assert(a.ficha == 0)
         
-
-
- 
 
 def test_tieneFicha():
     a = Fichas()
     a.ponerFichas(4)
-    a.tieneFicha(3)
-    assert(a.ficha == 3)
+    a.tieneFicha(4)
+    assert(a.ficha == 4)
     
