@@ -1,5 +1,4 @@
-
-class Jugadores:
+class Jugador:
     def __init__(self, nombre,ficha=5 ):
         self.nombre = nombre
         self.ficha = ficha 
@@ -15,11 +14,11 @@ class Jugadores:
             raise ValueError(f"No se puede sacar {cuantas} fichas del jugador  {self.nombre}, es más de lo que tiene")
         self.ficha = self.ficha - cuantas
 
-    def tieneFicha(self, cuantas=3):
-        if cuantas == self.ficha:
-            return True
+    def tieneFicha(self, cuantas=1):
+        return cuantas >= self.ficha
+        
         
     def sinFichas(self):
-        if self.ficha == 0:
-            return True
+        return self.ficha == 0
+            
 

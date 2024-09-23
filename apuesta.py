@@ -1,6 +1,4 @@
-
-
-class Fichas:
+class Apuesta:
     def __init__(self):
         self.ficha = 0
     
@@ -25,7 +23,7 @@ class Fichas:
         if cuantas == self.ficha:
             return True
     def estaVacia(self):
-        if self.total == 0:
+        if self.ficha == 0:
             return True
 
 

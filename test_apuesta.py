@@ -64,7 +64,7 @@ def test_tomarTodo():
 def test_tomarTodo_error():
     with pytest.raises(ValueError):
         a=Fichas()
-        a.ponerFichas(0)
+        a.ponerFichas()
         a.tomarTodas()
     assert(a.ficha == 0)
         
