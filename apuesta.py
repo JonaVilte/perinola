@@ -6,24 +6,28 @@ class Apuesta:
         return f"Apuesta: {self.ficha} fichas"
     
     def ponerFichas(self, cuantas=1):
-        self.ficha = self.ficha + cuantas
+        if cuantas < 1:
+            raise ValueError("La cantidad de fichas a poner debe ser al menos 1")
+        self.ficha += cuantas
 
     def tomarFicha(self, cuantas=1):
         if cuantas > self.ficha:
             raise ValueError(f"No hay tantas fichas (no se pueden sacar {cuantas} quedan {self.ficha})")
-        self.ficha = self.ficha - cuantas
+        self.ficha -= cuantas
 
     def tomarTodas(self):
         if self.ficha == 0:
             raise ValueError("No se puede tomar fichas")
+
+        fichas = self.ficha
         self.ficha = 0          
-        return f"Tengo {self.ficha} fichas y quedan {self.ficha} fichas en la mesa"
+        return fichas
     
     def tieneFicha(self, cuantas=1):
-        if cuantas == self.ficha:
-            return True
+        return self.ficha >= cuantas 
+            
     def estaVacia(self):
-        if self.ficha == 0:
-            return True
+        return self.ficha == 0
+            
 
 

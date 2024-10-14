@@ -1,4 +1,4 @@
-import pytest  # type: ignore
+import pytest   
 from apuesta import Fichas
 
 def test_prueba():

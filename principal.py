@@ -6,7 +6,7 @@ from rondas import Ronda
 ronda = Ronda()
 nombres = ("j1", "j2", "j3", "j4")
 for n in nombres:
-    j = Jugador(n)
+    j = Jugador(n, 3)
     ronda.agregarJugador(j)
 apuesta = Apuesta()
 perinola = Perinola()
@@ -15,11 +15,11 @@ def ponerTodos():
     print("Ponen todos")
     for j in ronda.jugadores:
         j.sacarFicha()
-        apuesta.ponerFicha()    
+        apuesta.ponerFichas()    
 
 ponerTodos()
 
-while not ronda.quedaUnSoloJugador():
+while not (ronda.quedaUnSoloJugador() or ronda.noQuedanJugador()):
     print(ronda)
     print(apuesta)
 
@@ -27,9 +27,7 @@ while not ronda.quedaUnSoloJugador():
         ponerTodos()
     ronda.sacarJugadoresSinFichas()
 
-    if ronda.quedaUnSoloJugador():
-        break
-    elif len(ronda.jugadores) == 0:
+    if ronda.quedaUnSoloJugador() or ronda.noQuedanJugador():
         break
 
     jt = ronda.jugadorEnTurno()
@@ -41,19 +39,19 @@ while not ronda.quedaUnSoloJugador():
 
     if p == "Pon 1":
         jt.sacarFicha()
-        apuesta.ponerFicha()
+        apuesta.ponerFichas()
     elif p == "Pon 2":
-        if jt.fichas == 1:
+        if jt.ficha == 1:
             jt.sacarFicha()
-            apuesta.ponerFicha()
+            apuesta.ponerFichas()
         else:
             jt.sacarFicha(2)
-            apuesta.ponerFicha(2)
+            apuesta.ponerFichas(2)
     elif p == "Toma 1":
         apuesta.tomarFicha()
         jt.darFicha()
     elif p == "Toma 2":
-        if apuesta.fichas == 1:
+        if apuesta.ficha == 1:
             apuesta.tomarFicha()
             jt.darFicha()
         else:
