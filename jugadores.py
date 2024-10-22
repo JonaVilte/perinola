@@ -15,7 +15,7 @@ class Jugador:
         self.ficha -= cuantas
 
     def tieneFicha(self, cuantas=1):
-        return cuantas >= self.ficha
+        return cuantas <= self.ficha
         
         
     def sinFichas(self):
