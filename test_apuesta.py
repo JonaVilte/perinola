@@ -61,10 +61,25 @@ def test_tomarTodo():
     a.tomarTodas()
     assert(a.ficha == 0) 
 
+def test_tomarFichas_sin_argumento():
+    a = Apuesta()
+    a.ficha = 6
+    a.tomarFicha()
+    assert(a.ficha == 5)
+
+def test_tomarFichas_error():
+    with pytest.raises(ValueError):
+        a = Apuesta()
+        a.ficha = 5
+        a.tomarFicha(6)  
+        
+    a = Apuesta()
+    a.ficha = 5
+    a.tomarFicha(5)
+
 def test_tomarTodo_error():
     with pytest.raises(ValueError):
         a=Apuesta()
-        a.ponerFichas()
         a.tomarTodas()
     assert(a.ficha == 0)
         
@@ -74,4 +89,9 @@ def test_tieneFicha():
     a.ponerFichas(4)
     a.tieneFicha(4)
     assert(a.ficha == 4)
-    
+
+def test_estaVacia():
+    a = Apuesta()
+    assert a.estaVacia() == True
+    a.ponerFichas(1)
+    assert a.estaVacia() == False
